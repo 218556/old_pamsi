@@ -1,6 +1,5 @@
 #include<iostream>
-#include<stdio.h>
-#include<time.h>
+#include<ctime>
 #include<cstdlib>
 using namespace std;
 
@@ -25,14 +24,18 @@ public:
   {
 	  int i=0;
 	  while (i<n)
-		  printf("%d ",tablica[i++]);
-	  printf("\n");
+	    {
+	      cout<<tablica[i++]<<" ";
+	      //printf("%d ",tablica[i++]);
+	    }
+	  cout<<endl;
+	  //printf("\n");
   }
 };
 
 void TabDyn::Dodaj(int a)
 {
-  int i=0, j=0;
+  int i=0;
   while(tablica[i]!=0)
       {
         i++;
@@ -53,7 +56,6 @@ void TabDyn::Dodaj(int a)
 
 int main()
 {
-  // auto epoch = high_resolution_clock::from_time_t(0);
   clock_t start = clock();
   TabDyn new_tab(2);
   int el=5;
@@ -63,12 +65,9 @@ int main()
   new_tab.Print();
   
   clock_t stop = clock();
-  printf("%d\n",(int)(stop-start));
+  cout<<endl<<"czas: "<<(int)(stop-start)<<endl;
+  //printf("%d\n",(int)(stop-start));
+
   system("PAUSE");
-
-  // auto now   = high_resolution_clock::now();
-  //  auto mseconds = duration_cast<milliseconds>(now - epoch).count();
-  //  std::cout << "millis: " << mseconds;
-
-  return(0);
+  return EXIT_SUCCESS;
 }
