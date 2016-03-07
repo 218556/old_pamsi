@@ -1,56 +1,74 @@
 #include<iostream>
-#include<chrono>
+#include<stdio.h>
+#include<time.h>
+#include<cstdlib>
 using namespace std;
-using namespace std::chrono;
 
 class TabDyn
 {
-  int n=10;
-  int *tablica = new int[n];
+  int n;
+  int *tablica;
 public:
-  int Dodaj(int a);
+  TabDyn(int _n)
+  {
+    n=_n;
+    tablica = new int[n];
+    for(int i=0; i<n; i++)
+      tablica[i]=0;
+  }
+  ~TabDyn()
+  {
+    delete tablica;
+  }
+  void Dodaj(int a);
+  void Print()
+  {
+	  int i=0;
+	  while (i<n)
+		  printf("%d ",tablica[i++]);
+	  printf("\n");
+  }
 };
 
-int TabDyn::Dodaj(int a)
+void TabDyn::Dodaj(int a)
 {
   int i=0, j=0;
-    while(tablica[i]!=NULL)
+  while(tablica[i]!=0)
       {
         i++;
       }
-    if(i>=n)
-      {
-        int *tablica2 = new int [n+1];
-        for(j=0; j<n; j++)
-          {
-            tablica2[j]=tablica[j];
-          }
-        tablica2[j]=a;
-      }
-    else
-      {
-        int *tablica2 = new int [n];
-        for(j=0; j<i; j++)
-          {
-            tablica2[j]=tablica[j];
-          }
-        tablica2[j+1]=a;
-      }
-    return *tablica2;
+  if(i<n)
+    tablica[i]=a;
+  else
+  {
+	  int *tablica2 = new int [n+1];
+	  i=0; while (i<n) {tablica2[i] = tablica[i]; i++;}
+	  tablica2[i]=a;
+	  tablica = tablica2;
+	  n++;
+  }
+  
 }
 
 
 int main()
 {
-  auto epoch = high_resolution_clock::from_time_t(0);
-
-  TabDyn new_tab;
+  // auto epoch = high_resolution_clock::from_time_t(0);
+  clock_t start = clock();
+  TabDyn new_tab(2);
   int el=5;
   new_tab.Dodaj(el);
+  new_tab.Dodaj(6);
+  new_tab.Dodaj(8);
+  new_tab.Print();
+  
+  clock_t stop = clock();
+  printf("%d\n",(int)(stop-start));
+  system("PAUSE");
 
-  auto now   = high_resolution_clock::now();
-  auto mseconds = duration_cast<milliseconds>(now - epoch).count();
-  std::cout << "millis: " << mseconds;
+  // auto now   = high_resolution_clock::now();
+  //  auto mseconds = duration_cast<milliseconds>(now - epoch).count();
+  //  std::cout << "millis: " << mseconds;
 
   return(0);
 }
