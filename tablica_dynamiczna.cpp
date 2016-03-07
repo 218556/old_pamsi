@@ -32,6 +32,38 @@ public:
   }
 };
 
+class Stoper
+{
+  clock_t start, stop;
+public:
+  void startClock()
+  {
+    start=clock();
+  }
+    void stopClock()
+  {
+    stop=clock();
+  }
+  void getElapsedTime()
+  {
+    cout<<endl<<"czas: "<<(int)(stop-start)<<endl;
+  }
+};
+
+class IRunnable
+{
+public:
+  bool run()
+  {
+  }
+  bool prepare(int size)
+  {
+  }
+};
+
+class Kolejka();
+class KolejkaTest();
+
 void TabDyn::Dodaj(int a)
 {
   int i=0;
