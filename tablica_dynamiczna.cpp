@@ -10,9 +10,10 @@ class TabDyn
 public:
   TabDyn(int _n)
   {
+    int i=0;
     n=_n;
     tablica = new int[n];
-    for(int i=0; i<n; i++)
+    for(i=0; i<n; i++)
       tablica[i]=0;
   }
   ~TabDyn()
@@ -26,10 +27,8 @@ public:
 	  while (i<n)
 	    {
 	      cout<<tablica[i++]<<" ";
-	      //printf("%d ",tablica[i++]);
 	    }
 	  cout<<endl;
-	  //printf("\n");
   }
 };
 
@@ -57,17 +56,18 @@ void TabDyn::Dodaj(int a)
 int main()
 {
   clock_t start = clock();
-  TabDyn new_tab(2);
-  int el=5;
-  new_tab.Dodaj(el);
-  new_tab.Dodaj(6);
-  new_tab.Dodaj(8);
+  TabDyn new_tab(10);
+  int el=5, i=0;
+  for(i=0; i<10; i++)
+    {
+      new_tab.Dodaj(el);
+    }
   new_tab.Print();
+
   
   clock_t stop = clock();
   cout<<endl<<"czas: "<<(int)(stop-start)<<endl;
-  //printf("%d\n",(int)(stop-start));
 
-  system("PAUSE");
+
   return EXIT_SUCCESS;
 }
