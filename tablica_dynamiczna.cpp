@@ -69,37 +69,41 @@ int main()
   cout<<endl<<"czas dla n=10: "<<(int)(stop-start)<<endl;
 
   // n=1000
+  TabDyn new_tab2(10);
   start = clock();
   for(i=0; i<1000; i++)
     {
-      new_tab.Dodaj(el);
+      new_tab2.Dodaj(el);
     }
   stop = clock();
   cout<<endl<<"czas dla n=10^3: "<<(int)(stop-start)<<endl;
 
   // n=10^5
+  TabDyn new_tab3(10);
   start = clock();
   for(i=0; i<100000; i++)
     {
-      new_tab.Dodaj(el);
+      new_tab3.Dodaj(el);
     }
   stop = clock();
   cout<<endl<<"czas dla n=10^5: "<<(int)(stop-start)<<endl;
 
   // n=10^6
+  TabDyn new_tab4(10);
   start = clock();
   for(i=0; i<1000000; i++)
     {
-      new_tab.Dodaj(el);
+      new_tab4.Dodaj(el);
     }
   stop = clock();
   cout<<endl<<"czas dla n=10^6: "<<(int)(stop-start)<<endl;
 
   // n=10^9
+  TabDyn new_tab5(10);
   start = clock();
   for(i=0; i<1000000000; i++)
     {
-      new_tab.Dodaj(el);
+      new_tab5.Dodaj(el);
     }
   stop = clock();
   cout<<endl<<"czas dla n=10^9: "<<(int)(stop-start)<<endl;
