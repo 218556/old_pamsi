@@ -55,19 +55,55 @@ void TabDyn::Dodaj(int a)
 
 int main()
 {
-  clock_t start = clock();
   TabDyn new_tab(10);
   int el=5, i=0;
+
+  // n=10
+  clock_t start = clock();
   for(i=0; i<10; i++)
     {
       new_tab.Dodaj(el);
     }
-  new_tab.Print();
+  //new_tab.Print();
+  clock_t stop = clock();
+  cout<<endl<<"czas dla n=10: "<<(int)(stop-start)<<endl;
+
+  // n=1000
+  start = clock();
+  for(i=0; i<1000; i++)
+    {
+      new_tab.Dodaj(el);
+    }
+  stop = clock();
+  cout<<endl<<"czas dla n=10^3: "<<(int)(stop-start)<<endl;
+
+  // n=10^5
+  start = clock();
+  for(i=0; i<100000; i++)
+    {
+      new_tab.Dodaj(el);
+    }
+  stop = clock();
+  cout<<endl<<"czas dla n=10^5: "<<(int)(stop-start)<<endl;
+
+  // n=10^6
+  start = clock();
+  for(i=0; i<1000000; i++)
+    {
+      new_tab.Dodaj(el);
+    }
+  stop = clock();
+  cout<<endl<<"czas dla n=10^6: "<<(int)(stop-start)<<endl;
+
+  // n=10^9
+  start = clock();
+  for(i=0; i<1000000000; i++)
+    {
+      new_tab.Dodaj(el);
+    }
+  stop = clock();
+  cout<<endl<<"czas dla n=10^9: "<<(int)(stop-start)<<endl;
 
   
-  clock_t stop = clock();
-  cout<<endl<<"czas: "<<(int)(stop-start)<<endl;
-
-
   return EXIT_SUCCESS;
 }
