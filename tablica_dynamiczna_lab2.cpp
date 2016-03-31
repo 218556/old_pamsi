@@ -61,8 +61,8 @@ public:
   }
 };
 
-class Kolejka();
-class KolejkaTest();
+class Kolejka;
+class KolejkaTest;
 
 void TabDyn::Dodaj(int a)
 {
